@@ -1,6 +1,12 @@
 from django.urls import path
-from .views import PropertyListCreateView
+from rest_framework.routers import DefaultRouter
+from .views import PropertyViewSet, RegisterAPIView
+
+router = DefaultRouter()
+router.register(r"properties", PropertyViewSet, basename="property")
 
 urlpatterns = [
-    path('properties/', PropertyListCreateView.as_view()),
+    path("register/", RegisterAPIView.as_view(), name="register"),
 ]
+
+urlpatterns += router.urls
