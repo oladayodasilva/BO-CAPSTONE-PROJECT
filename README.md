@@ -76,9 +76,9 @@ POST /api/register/
 Request Body:
 
 {
-  "username": "del",
-  "email": "del@example.com",
-  "password": "woakil123"
+  "username": "newuser1",
+  "email": "newuser1@example.com",
+  "password": "newuser123"
 }
 
 
@@ -156,12 +156,12 @@ Testing All in One Go (cURL)
 # 1. Register User
 curl -X POST http://127.0.0.1:8000/api/register/ \
 -H "Content-Type: application/json" \
--d '{"username": "del", "email": "del@example.com", "password": "woakil123"}'
+-d '{"username": "newuser1", "email": "newuser@example.com", "password": "newuser123"}'
 
 # 2. Obtain JWT Token
 curl -X POST http://127.0.0.1:8000/api/token/ \
 -H "Content-Type: application/json" \
--d '{"username": "del", "password": "woakil123"}'
+-d '{"username": "newuser1", "password": "newuser123"}'
 
 # 3. Create Property
 curl -X POST http://127.0.0.1:8000/api/properties/ \
@@ -177,7 +177,7 @@ http://127.0.0.1:8000/api/properties/
 curl -X PUT http://127.0.0.1:8000/api/properties/1/ \
 -H "Authorization: Bearer <access_token>" \
 -H "Content-Type: application/json" \
--d '{"title":"Updated Apartment","description":"Updated","property_type":"apartment","address":"VI Lagos","price":"26000000","is_available":true}'
+-d '{"title":"Modern Apartment","description":"Sustainable Luxury 3 Bedroom","property_type":"apartment","address":"VI Lagos","price":"26000000","is_available":true}'
 
 # 6. Delete Property
 curl -X DELETE http://127.0.0.1:8000/api/properties/1/ \
